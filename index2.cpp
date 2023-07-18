@@ -349,13 +349,13 @@ string BirthDay(DATE& date) {
         addToText(to_string(date.day) + " " + to_string(date.month) + " " + to_string(date.year));
         cin.clear();
         cin.ignore(1000, '\n'); // Xóa bỏ các ký tự dư thừa trong bộ nhớ đệm
-        cout<<"Ngay sinh khong hop le, hay nhap lai!"<<endl<<"Ngay sinh (yyyy mm dd): ";
-        addToText("\nNgay sinh khong hop le, hay nhap lai!\nNgay sinh (yyyy mm dd): ");
+        cout<<"Ngay sinh khong hop le, hay nhap lai!"<<endl<<"Ngay sinh (dd mm yyyy): ";
+        addToText("\nNgay sinh khong hop le, hay nhap lai!\nNgay sinh (dd mm yyyy): ");
     }
     addToText(to_string(date.day) + " " + to_string(date.month) + " " + to_string(date.year)+"\n");
     if(checkDate(date)==0){
-        cout<<"Ngay sinh khong hop le, hay nhap lai!"<<endl<<"Ngay sinh (yyyy mm dd): ";
-        addToText("Ngay sinh khong hop le, hay nhap lai!\nNgay sinh (yyyy mm dd): ");
+        cout<<"Ngay sinh khong hop le, hay nhap lai!"<<endl<<"Ngay sinh (dd mm yyyy): ";
+        addToText("Ngay sinh khong hop le, hay nhap lai!\nNgay sinh (dd mm yyyy): ");
         DATE newDate;
         return BirthDay(newDate);
     }
@@ -741,7 +741,7 @@ void addDT(DT &listDT, DeTai *dt1, DeTai *dt2){
     //Neu khong thi them de tai 2 vao giua
     else{
         for(DeTai *i=listDT.dtHead;i!=nullptr;i=i->next){
-            if(i->maSoDT==dt2->maSoDT){
+            if(i->maSoDT==dt2->maSoDT && i->next->maSoDT!=dt2->maSoDT){
                 DeTai *dt2_after=i->next;
                 dt2->next=dt1;
                 dt1->next=dt2_after;
